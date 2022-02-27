@@ -74,7 +74,7 @@ textarea:focus {
 	background-color: #dca9fa;
 	border-radius: 10px;
 	padding: 1rem;
-	min-height: 170px;
+	min-height:220px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -114,4 +114,8 @@ textarea:focus {
 
 .search input:focus {
 	outline: none;
+}
+.photo {
+	height: 200px;
+	width: 200px;
 }

@@ -6,13 +6,14 @@ import { nanoid } from 'nanoid';
 function App() {
   const [notes, setNotes]= useState([]);
 
-  const addNote = (title,text)=>{
+  const addNote = (title,text,image)=>{
     const date = new Date();
     const nextState = produce(notes, draftState => {
       draftState.push({ 
         id: nanoid(),
         title: title,
         text: text,
+        image: image,
         date: date.toLocaleDateString() });
     });
 
