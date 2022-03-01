@@ -65,12 +65,15 @@ const AddNote = ({ handleClickSave, note = undefined }) => {
     <div className="note new">
       <div>
         <textarea
+          className="edit-title"
           placeholder="Title"
           value={noteTitle}
           onChange={noteTitleChange}
           wrap="off"
         ></textarea>
+        <br />
         <textarea
+          className="edit-text"
           placeholder="Content"
           value={noteText}
           onChange={noteChange}
