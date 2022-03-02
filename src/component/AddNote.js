@@ -18,12 +18,11 @@ const AddNote = ({ handleClickSave, note = undefined }) => {
       return;
     }
 
-    const objectUrl = URL.createObjectURL(selectedFile);
-    console.log("file url " + objectUrl);
-    setImage(objectUrl);
+   //const objectUrl = URL.createObjectURL(selectedFile);
+   // setImage(objectUrl);
 
     // free memory when ever this component is unmounted
-    return () => URL.revokeObjectURL(objectUrl);
+   // return () => URL.revokeObjectURL(objectUrl);
   }, [selectedFile]);
 
   const noteChange = (e) => {
@@ -57,7 +56,11 @@ const AddNote = ({ handleClickSave, note = undefined }) => {
       setSelectedFile(undefined);
       return;
     }
-
+    const reader = new FileReader();
+    reader.addEventListener("load",()=>{
+      setImage(reader.result)
+    });
+    reader.readAsDataURL(e.target.files[0]);
     setSelectedFile(e.target.files[0]);
   };
 
