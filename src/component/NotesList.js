@@ -42,14 +42,19 @@ function NotesList() {
   };
 
   const addNote = (title, text, image) => {
-    const date = new Date();
+    const today = Date.now();
+    const todayDate = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(today);
     const nextState = produce(notes, (draftState) => {
       draftState.push({
         id: nanoid(),
         title: title,
         text: text,
         image: image,
-        date: date.toLocaleDateString(),
+        date: todayDate,
         editing: false,
       });
     });
