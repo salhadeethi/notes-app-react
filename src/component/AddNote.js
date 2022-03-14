@@ -18,11 +18,6 @@ const AddNote = ({ handleClickSave, note = undefined }) => {
       return;
     }
 
-   //const objectUrl = URL.createObjectURL(selectedFile);
-   // setImage(objectUrl);
-
-    // free memory when ever this component is unmounted
-   // return () => URL.revokeObjectURL(objectUrl);
   }, [selectedFile]);
 
   const noteChange = (e) => {
