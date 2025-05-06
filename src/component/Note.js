@@ -1,5 +1,10 @@
-import { MdDeleteForever, MdEdit } from "react-icons/md";
+import { MdDeleteForever, MdEdit, MdImportExport } from "react-icons/md";
+import { saveAs } from "file-saver";
 const Note = ({ note, handleDeleteNote, handleClickEdit }) => {
+  function exportNoteToText() {
+    var blob = new Blob([`${note.title} \n ${note.text}`], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, `${note.title}.txt`);
+  }
   //span for note section , the footer for date and delete icon
   return (
     <div className="note">
@@ -25,6 +30,11 @@ const Note = ({ note, handleDeleteNote, handleClickEdit }) => {
             className="delete-icon"
             size="1.3em"
           ></MdDeleteForever>
+          <MdImportExport
+            onClick={exportNoteToText}
+            className="export-icon"
+            size="1.3em"
+          ></MdImportExport>
         </div>
       </div>
     </div>
